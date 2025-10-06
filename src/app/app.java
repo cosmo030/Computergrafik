@@ -28,4 +28,3 @@ public class app {
     image.writePNG("a01-constant-color");
   }
 }
-// test
