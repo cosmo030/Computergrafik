@@ -1,3 +1,7 @@
+// module "Computergrafik Grundlagen", authors Hartmut Schirmacher + Henrik Tramberend
+// Berliner Hochschule für Technik
+// contact hschirmacher@bht-berlin.de
+
 package cgg_tools;
 
 // import cgg_tools.Color; // for from_color
@@ -8,40 +12,6 @@ package cgg_tools;
  * components.
  */
 public final record Vec3(double x, double y, double z) {
-
-  /**
-   * Returns the x-coordinate of the vector.
-   * This method is an alias for the x() method.
-   *
-   * @return The x-coordinate (u-component) of the vector.
-   */
-  public double u() {
-    return x;
-  }
-
-  /**
-   * Returns the y-coordinate of the vector.
-   * This method is an alias for the y() method.
-   *
-   * @return The y-coordinate (v-component) of the vector.
-   */
-  public double v() {
-    return y;
-  }
-
-  /**
-   * Returns the z-coordinate of the vector.
-   * This method is an alias for the z() method.
-   *
-   * @return The z-coordinate (w-component) of the vector.
-   */
-  public double w() {
-    return z;
-  }
-
-  public Vec2 uv() {
-    return new Vec2(x, y);
-  }
 
   /**
    * Returns a string representation of the vector.
@@ -291,6 +261,54 @@ public final record Vec3(double x, double y, double z) {
     public static Vec3 reflect(Vec3 d, Vec3 n) {
         return subtract(d, multiply(2.0 * dot(n, d), n));
     }
+
+    /**
+     * compares two vectors robustly using some epsilon, component by component
+     * @param a first vector
+     * @param b second vector
+     * @return true if vectors are "almost" the same
+     */
+    public static boolean almostEqual(Vec3 a, Vec3 b) {
+        return 
+            Util.almostEqual(a.x(),b.x()) && 
+            Util.almostEqual(a.y(),b.y()) && 
+            Util.almostEqual(a.z(),b.z());
+    }
+
+  /**
+   * Returns the x-coordinate of the vector.
+   * This method is an alias for the x() method.
+   *
+   * @return The x-coordinate (u-component) of the vector.
+   */
+  public double u() {
+    return x;
+  }
+
+  /**
+   * Returns the y-coordinate of the vector.
+   * This method is an alias for the y() method.
+   *
+   * @return The y-coordinate (v-component) of the vector.
+   */
+  public double v() {
+    return y;
+  }
+
+  /**
+   * Returns the z-coordinate of the vector.
+   * This method is an alias for the z() method.
+   *
+   * @return The z-coordinate (w-component) of the vector.
+   */
+  public double w() {
+    return z;
+  }
+
+  public Vec2 uv() {
+    return new Vec2(x, y);
+  }
+
 
 
 }

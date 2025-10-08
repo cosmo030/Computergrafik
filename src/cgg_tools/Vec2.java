@@ -1,3 +1,7 @@
+// module "Computergrafik Grundlagen", authors Hartmut Schirmacher + Henrik Tramberend
+// Berliner Hochschule für Technik
+// contact hschirmacher@bht-berlin.de
+
 package cgg_tools;
 
 /**
@@ -243,6 +247,20 @@ public final record Vec2(double x, double y) {
     public static Vec2 max(Vec2 a, Vec2 b) {
         return new Vec2(Math.max(a.x(), b.x()), Math.max(a.y(), b.y()));
     }
+
+    /**
+     * compares two vectors robustly using some epsilon, component by component
+     * @param a first vector
+     * @param b second vector
+     * @return true if vectors are "almost" the same
+     */
+    public static boolean almostEqual(Vec2 a, Vec2 b) {
+        return 
+            Util.almostEqual(a.x(),b.x()) && 
+            Util.almostEqual(a.y(),b.y()); 
+    }
+
+
 
 
 }
