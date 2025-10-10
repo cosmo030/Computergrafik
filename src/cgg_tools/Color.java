@@ -38,6 +38,8 @@ public record Color(double r, double g, double b) {
     public static final Color magenta = new Color(1, 0, 1);
     /** Yellow color (1, 1, 0). */
     public static final Color yellow = new Color(1, 1, 0);
+    /** Beige color (1, 0.5, 0.2) */
+    public static final Color beige = new Color(1, 0.5, 0.2);
 
     /**
      * Adds two or more Color objects.

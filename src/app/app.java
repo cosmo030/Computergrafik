@@ -17,7 +17,7 @@ public class app {
 
     // This object defines the contents of the image.
     // It must implement the cggtools.Sampler interface.
-    var obj = new ConstantColorSampler(Color.green);
+    var obj = new ConstantColorSampler(Color.beige);
 
     // iterate over all pixel of the image
     var image = new Image(width, height);
