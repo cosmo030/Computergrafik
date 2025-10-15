@@ -13,8 +13,7 @@ public class ColoredDiscs implements Sampler {
     double radiusMax;
     List<DiscModel2D> discs;
 
-    public ColoredDiscs(int width, int height, int count, double radiusMin, double radiusMax, Color background)
-            throws IllegalArgumentException {
+    public ColoredDiscs(int width, int height, int count, double radiusMin, double radiusMax, Color background) {
         if (count < 0 || radiusMin > radiusMax || width <= 0 || height <= 0) {
             throw new IllegalArgumentException("rules: 'count >= 0 && radiusMin <= radiusMax' !!!");
         }
@@ -50,16 +49,6 @@ public class ColoredDiscs implements Sampler {
 
     @Override
     public Color getColor(Vec2 p) {
-        /*
-         * for (int index = discs.size() - 1; index >= 0; index--) {
-         * DiscModel2D disc = discs.get(index);
-         * if (disc.coversPoint(p)) {
-         * return disc.color();
-         * }
-         * }
-         */
-
-        // Zusatzaufgabe
         DiscModel2D best = null;
         double smallestRadius = Double.POSITIVE_INFINITY;
         for (int index = 0; index < discs.size(); index++) {
@@ -71,19 +60,6 @@ public class ColoredDiscs implements Sampler {
         }
         if (best != null)
             return best.color();
-
-        /*
-         * ListIterator<DiscModel2D> li = discs.listIterator(discs.size()); //
-         * https://stackoverflow.com/questions/2102499/iterating-through-a-list-in-
-         * reverse-order-in-java
-         * while (li.hasPrevious()) {
-         * DiscModel2D disc = new DiscModel2D();
-         * if (disc.coversPoint(p)) {
-         * return disc.color();
-         * }
-         * }
-         * hab das nicht gepeilt lol
-         */
         return background;
     }
 }

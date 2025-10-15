@@ -6,8 +6,9 @@ package app;
 
 import cgg_tools.Color;
 import cgg_tools.Vec2;
-import cgg_tools.ConstantColorSampler;
-import cgg_tools.ColoredDiscs;
+import cgg_tools.Vec3;
+import cgg_tools.Ray;
+import cgg_tools.Camera;
 
 public class app {
 
@@ -18,17 +19,25 @@ public class app {
     // This object defines the contents of the image.
     // It must implement the cggtools.Sampler interface.
     // var obj = new ConstantColorSampler(Color.beige);
-    var obj = new ColoredDiscs(width, height, 50, 10, 100, Color.black);
+    Camera cam = new Camera(width, height, 45.0);
 
     // iterate over all pixel of the image
     var image = new Image(width, height);
     for (int i = 0; i != width; i++) {
       for (int j = 0; j != height; j++) {
-        image.setPixel(i, j, obj.getColor(new Vec2(i, j)));
+        // image.setPixel(i, j, obj.getColor(new Vec2(i, j)));
+        Ray ray = cam.generate_ray(new Vec2(i, j));
+        Vec3 d = ray.getDValue();
+        Vec3 n = Vec3.normalize(d);
+        double r = n.x();
+        double g = n.y();
+        double b = 0.0;
+        Color color = new Color(r, g, b);
+        image.setPixel(i, j, color);
       }
     }
 
     // Write the image to disk.
-    image.writePNG("a01-discs-2");
+    image.writePNG("a02_cam_directions");
   }
 }
