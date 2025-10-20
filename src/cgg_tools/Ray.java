@@ -1,8 +1,8 @@
 package cgg_tools;
 
 public class Ray {
-    Vec3 x0;
-    Vec3 d;
+    Vec3 x0; // punkt x0
+    Vec3 d; // richtung d
     double tMin;
     double tMax;
 
