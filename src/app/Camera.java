@@ -1,6 +1,7 @@
-package cgg_tools;
+package app;
 
-import app.Ray;
+import cgg_tools.Vec2;
+import cgg_tools.Vec3;
 
 public class Camera {
     int width;

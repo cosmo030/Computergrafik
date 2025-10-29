@@ -12,7 +12,8 @@ public class Ray {
         this.x0 = x0;
         this.d = d;
         this.tMin = tMin;
-        this.tMax = Double.POSITIVE_INFINITY;
+        this.tMax = tMax;
+        // this.tMax = Double.POSITIVE_INFINITY;
     }
 
     public Vec3 point_at(double t) {
