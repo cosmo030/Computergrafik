@@ -5,7 +5,6 @@ import java.util.List;
 //import java.util.ListIterator;
 
 import cgg_tools.Color;
-import cgg_tools.Random;
 import cgg_tools.RandomUtil;
 import cgg_tools.Sampler;
 import cgg_tools.Vec2;
