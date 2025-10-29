@@ -27,6 +27,7 @@ public class app {
     rt.addSphere(new Sphere(new Vec3(5, 0, -40), 4, Color.cyan));
     rt.addSphere(new Sphere(new Vec3(8, 2, -40), 3, Color.yellow));    
     rt.addSphere(new Sphere(new Vec3(-1.8, 1.3, -10), 0.7, Color.gray));    
+    rt.addSphere(new Sphere(new Vec3(-1.8, 2, -21), 1.5, Color.white));    
 
     // iterate over all pixel of the image
     var image = new Image(width, height);
