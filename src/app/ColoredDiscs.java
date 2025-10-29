@@ -1,8 +1,14 @@
-package cgg_tools;
+package app;
 
 import java.util.ArrayList;
 import java.util.List;
 //import java.util.ListIterator;
+
+import cgg_tools.Color;
+import cgg_tools.Random;
+import cgg_tools.RandomUtil;
+import cgg_tools.Sampler;
+import cgg_tools.Vec2;
 
 public class ColoredDiscs implements Sampler {
     Color background;
@@ -32,11 +38,11 @@ public class ColoredDiscs implements Sampler {
         discs.clear();
 
         for (int c = 0; c < count; c++) {
-            double tmpRadius = Random.random();
+            double tmpRadius = RandomUtil.random();
             double radius = radiusMin + tmpRadius * (radiusMax - radiusMin);
 
-            double tmpX = Random.random();
-            double tmpY = Random.random();
+            double tmpX = RandomUtil.random();
+            double tmpY = RandomUtil.random();
             double x = tmpX * width;
             double y = tmpY * height;
             Color color = RandomUtil.randomColor();

@@ -1,5 +1,7 @@
 package cgg_tools;
 
+import app.Ray;
+
 public class Camera {
     int width;
     int height;

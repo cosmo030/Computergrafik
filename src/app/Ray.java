@@ -1,4 +1,6 @@
-package cgg_tools;
+package app;
+
+import cgg_tools.Vec3;
 
 public class Ray {
     Vec3 x0; // punkt x0

@@ -1,4 +1,7 @@
-package cgg_tools;
+package app;
+
+import cgg_tools.Color;
+import cgg_tools.Vec2;
 
 public record DiscModel2D(Vec2 m, double r, Color color) {
 

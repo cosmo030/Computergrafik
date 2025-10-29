@@ -1,4 +1,7 @@
-package cgg_tools;
+package app;
+
+import cgg_tools.Color;
+import cgg_tools.Vec3;
 
 public record Sphere(Vec3 center, double radius, Color color) {
 
