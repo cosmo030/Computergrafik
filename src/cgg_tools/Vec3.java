@@ -254,12 +254,12 @@ public final record Vec3(double x, double y, double z) {
     /**
      * Calculates the reflection of a vector on a surface.
      *
-     * @param d The vector to be reflected.
+     * @param d The vector to be reflected, pointing away (!) from the surface
      * @param n The surface normal vector.
-     * @return A new Vec3 with the maximum values of each component.
+     * @return A new Vec3 
      */
     public static Vec3 reflect(Vec3 d, Vec3 n) {
-        return subtract(d, multiply(2.0 * dot(n, d), n));
+        return subtract(multiply(2.0 * dot(n, d), n), d);
     }
 
     /**
