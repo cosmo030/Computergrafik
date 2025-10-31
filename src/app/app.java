@@ -17,17 +17,19 @@ public class app {
     // This object defines the contents of the image.
     // It must implement the cggtools.Sampler interface.
     Camera cam = new Camera(width, height, 45.0);
-    Raytracer rt = new Raytracer(cam, Color.black);
+    GroupShape scene = new GroupShape();
 
     // add spheres
-    rt.addSphere(new SphereShape(new Vec3(1, -3, -35), 4, Color.beige));
-    rt.addSphere(new SphereShape(new Vec3(0, 0, -20), 1, Color.blue));
-    rt.addSphere(new SphereShape(new Vec3(-2.5, -1.5, -15), 1.5, Color.green));
-    rt.addSphere(new SphereShape(new Vec3(-3, 0, -15), 2, Color.magenta));
-    rt.addSphere(new SphereShape(new Vec3(5, 0, -40), 4, Color.cyan));
-    rt.addSphere(new SphereShape(new Vec3(8, 2, -40), 3, Color.yellow));
-    rt.addSphere(new SphereShape(new Vec3(-1.8, 1.3, -10), 0.7, Color.gray));
-    rt.addSphere(new SphereShape(new Vec3(-1.8, 2, -21), 1.5, Color.white));
+    scene.add(new SphereShape(new Vec3(1, -3, -35), 4, Color.beige));
+    scene.add(new SphereShape(new Vec3(0, 0, -20), 1, Color.blue));
+    scene.add(new SphereShape(new Vec3(-2.5, -1.5, -15), 1.5, Color.green));
+    scene.add(new SphereShape(new Vec3(-3, 0, -15), 2, Color.magenta));
+    scene.add(new SphereShape(new Vec3(5, 0, -40), 4, Color.cyan));
+    scene.add(new SphereShape(new Vec3(8, 2, -40), 3, Color.yellow));
+    scene.add(new SphereShape(new Vec3(-1.8, 1.3, -10), 0.7, Color.gray));
+    scene.add(new SphereShape(new Vec3(-1.8, 2, -21), 1.5, Color.white));
+
+    Raytracer rt = new Raytracer(cam, scene, Color.black);
 
     // iterate over all pixel of the image
     var image = new Image(width, height);
