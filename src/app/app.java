@@ -33,15 +33,6 @@ public class app {
     var image = new Image(width, height);
     for (int i = 0; i != width; i++) {
       for (int j = 0; j != height; j++) {
-        /*
-         * Ray ray = cam.generate_ray(new Vec2(i, j));
-         * Vec3 d = ray.getDValue();
-         * Vec3 n = Vec3.normalize(d);
-         * double r = n.x();
-         * double g = n.y();
-         * double b = 0.0;
-         * Color color = new Color(r, g, b);
-         */
         image.setPixel(i, j, rt.getColor(new Vec2(i, j)));
       }
     }

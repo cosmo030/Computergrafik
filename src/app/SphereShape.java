@@ -4,7 +4,7 @@ import cgg_tools.Color;
 import cgg_tools.Vec3;
 import cgg_tools.Util;
 
-public record Sphere(Vec3 center, double radius, Color color) {
+public record SphereShape(Vec3 center, double radius, Color color) implements Shape {
 
     public Hit intersect(Ray r) {
         Color cHit = this.color;
@@ -16,7 +16,8 @@ public record Sphere(Vec3 center, double radius, Color color) {
         double disc = b * b - 4 * a * c;
         double eps = Util.EPSILON; // use elipson for 3 possibilities
 
-        if(disc < -eps) return null;
+        if (disc < -eps)
+            return null;
         if (disc > eps) {
             double t1 = (-b - Math.sqrt(disc)) / (2 * a);
             double t2 = (-b + Math.sqrt(disc)) / (2 * a);
@@ -34,8 +35,8 @@ public record Sphere(Vec3 center, double radius, Color color) {
             }
         }
         if (disc <= eps) {
-            double t = -b / (2 * a);        
-            if(r.is_valid(t)) {
+            double t = -b / (2 * a);
+            if (r.is_valid(t)) {
                 Vec3 x = r.point_at(t);
                 Vec3 n = Vec3.normalize(Vec3.subtract(x, center));
                 Hit hit = new Hit(t, x, n, cHit);
