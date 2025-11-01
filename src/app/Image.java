@@ -47,7 +47,6 @@ public class Image implements cgg_tools.Image {
     public Color getPixel(int i, int j) {
         if (i < 0 || i >= width || j < 0 || j >= height)
             return Color.black;
-        // Color color = new Color();
         int index = j * width + i;
         int rgb = index * 3;
         double r = data[rgb];
