@@ -30,6 +30,8 @@ public class Raytracer implements Sampler {
         Hit h = scene.intersect(ray);
         if (h == null)
             return background;
+        if (Double.isInfinite(h.t()))
+            return shade(h.n(), h.c());
         Vec3 n = h.n();
         Color c = h.c();
         return shade(n, c);

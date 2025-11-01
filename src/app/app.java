@@ -4,8 +4,6 @@
 
 package app;
 
-import javax.swing.ImageIcon;
-
 import cgg_tools.Color;
 import cgg_tools.Vec3;
 
@@ -17,38 +15,23 @@ public class app {
 
     // This object defines the contents of the image.
     // It must implement the cggtools.Sampler interface.
-    Camera cam = new Camera(width, height, 45.0);
+    // iterate over all pixel of the image
+    // scene
+    var image = new Image(width, height);
+    Camera cam = new Camera(width, height, 70.0);
     GroupShape scene = new GroupShape();
 
-    // add spheres
-    scene.add(new SphereShape(new Vec3(1, -3, -35), 4, Color.beige));
-    scene.add(new SphereShape(new Vec3(0, 0, -20), 1, Color.blue));
-    scene.add(new SphereShape(new Vec3(-2.5, -1.5, -15), 1.5, Color.green));
-    scene.add(new SphereShape(new Vec3(-3, 0, -15), 2, Color.magenta));
-    scene.add(new SphereShape(new Vec3(5, 0, -40), 4, Color.cyan));
-    scene.add(new SphereShape(new Vec3(8, 2, -40), 3, Color.yellow));
-    scene.add(new SphereShape(new Vec3(-1.8, 1.3, -10), 0.7, Color.gray));
-    scene.add(new SphereShape(new Vec3(-1.8, 2, -21), 1.5, Color.white));
+    DiscShape ds = new DiscShape(new Vec3(0, -0.5, 0), 100, Color.yellow);
+    BackgroundShape bs = new BackgroundShape(Color.multiply(0.7, Color.white));
+    scene.add(new SphereShape(new Vec3(-1, -0.25, -2.5), .7, Color.red));
+    scene.add(new SphereShape(new Vec3(0, -0.25, -2.5), .5, Color.green));
+    scene.add(new SphereShape(new Vec3(1, -0.25, -2.5), .7, Color.blue));
+    scene.add(ds);
+    scene.add(bs);
 
-    Raytracer rt = new Raytracer(cam, scene, Color.black);
-
-    // iterate over all pixel of the image
-    var image = new Image(width, height);
-
-    image.sample(rt);
-
-    // testing getPixel
-    /*
-     * int w = 500;
-     * int h = 500;
-     * var imgTest = new Image(w, h);
-     * imgTest.setPixel(0, 0, Color.beige);
-     * System.out.println(imgTest.getPixel(0, 0));
-     */
-
+    Raytracer raytracer = new Raytracer(cam, scene, Color.black);
+    image.sample(raytracer);
     // Write the image to disk.
-    image.writePNG("a02_spheres");
-
-    IntersectionTest.runAll();
+    image.writePNG("a03-test-scene");
   }
 }
