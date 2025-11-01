@@ -3,6 +3,8 @@ package app;
 
 import cgg_tools.Color;
 import cgg_tools.ImageWriter;
+import cgg_tools.Sampler;
+import cgg_tools.Vec2;
 
 public class Image implements cgg_tools.Image {
     int width, height;
@@ -32,10 +34,27 @@ public class Image implements cgg_tools.Image {
         ImageWriter.writePNG(name, data, width, height);
     }
 
+    public void sample(Sampler s) {
+        for (int i = 0; i != width; i++) {
+            for (int j = 0; j != height; j++) {
+                this.setPixel(i, j, s.getColor(new Vec2(i, j)));
+            }
+        }
+    }
+
     // return the RGB color of a given pixel (i,j)
     @Override
     public Color getPixel(int i, int j) {
-        return Color.black;
+        if (i < 0 || i >= width || j < 0 || j >= height)
+            return Color.black;
+        // Color color = new Color();
+        int index = j * width + i;
+        int rgb = index * 3;
+        double r = data[rgb];
+        double g = data[rgb + 1];
+        double b = data[rgb + 2];
+        Color color = new Color(r, g, b);
+        return color;
     }
 
     @Override

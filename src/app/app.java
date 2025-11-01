@@ -4,8 +4,9 @@
 
 package app;
 
+import javax.swing.ImageIcon;
+
 import cgg_tools.Color;
-import cgg_tools.Vec2;
 import cgg_tools.Vec3;
 
 public class app {
@@ -33,16 +34,21 @@ public class app {
 
     // iterate over all pixel of the image
     var image = new Image(width, height);
-    for (int i = 0; i != width; i++) {
-      for (int j = 0; j != height; j++) {
-        image.setPixel(i, j, rt.getColor(new Vec2(i, j)));
-      }
-    }
+
+    image.sample(rt);
+
+    // testing getPixel
+    /*
+     * int w = 500;
+     * int h = 500;
+     * var imgTest = new Image(w, h);
+     * imgTest.setPixel(0, 0, Color.beige);
+     * System.out.println(imgTest.getPixel(0, 0));
+     */
 
     // Write the image to disk.
     image.writePNG("a02_spheres");
 
     IntersectionTest.runAll();
-    ;
   }
 }
