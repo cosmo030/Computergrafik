@@ -30,11 +30,12 @@ public class Raytracer implements Sampler {
         Hit h = scene.intersect(ray);
         if (h == null)
             return background;
-        if (Double.isInfinite(h.t()))
-            return shade(h.n(), h.c());
-        Vec3 n = h.n();
-        Color c = h.c();
-        return shade(n, c);
+        Material material = h.material();
+        Vec3 to_viewer = Vec3.normalize(Vec3.negate(ray.d));
+        Vec3 to_light = Vec3.normalize(new Vec3(1, 1, .5));
+        Color incoming_light = Color.white;               
+        Color color = material.shade(h, to_viewer, to_light, incoming_light);
+        return color;
     }
 
 }

@@ -21,11 +21,12 @@ public class app {
     Camera cam = new Camera(width, height, 70.0);
     GroupShape scene = new GroupShape();
 
-    DiscShape ds = new DiscShape(new Vec3(0, -0.5, 0), 100, Color.yellow);
-    BackgroundShape bs = new BackgroundShape(Color.multiply(0.7, Color.white));
-    scene.add(new SphereShape(new Vec3(-1, -.25, -2.5), .7, Color.red));
-    scene.add(new SphereShape(new Vec3(0, -.25, -2.5), .5, Color.green));
-    scene.add(new SphereShape(new Vec3(1, -.25, -2.5), .7, Color.blue));
+    DummyMaterial dummy = new DummyMaterial();
+    DiscShape ds = new DiscShape(new Vec3(0, -0.5, 0), 100, dummy);
+    BackgroundShape bs = new BackgroundShape(dummy);
+    scene.add(new SphereShape(new Vec3(-1, -.25, -2.5), .7, dummy));
+    scene.add(new SphereShape(new Vec3(0, -.25, -2.5), .5, dummy));
+    scene.add(new SphereShape(new Vec3(1, -.25, -2.5), .7, dummy));
     scene.add(ds);
     scene.add(bs);
 

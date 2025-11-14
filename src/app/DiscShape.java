@@ -1,10 +1,9 @@
 package app;
 
-import cgg_tools.Color;
 import cgg_tools.Util;
 import cgg_tools.Vec3;
 
-public record DiscShape(Vec3 p, double radius, Color color) implements Shape {
+public record DiscShape(Vec3 p, double radius, Material material) implements Shape {
 
     @Override
     public Hit intersect(Ray r) {
@@ -26,7 +25,7 @@ public record DiscShape(Vec3 p, double radius, Color color) implements Shape {
             return null;
         Vec3 nNew = new Vec3(0, 1, 0);
 
-        Hit hit = new Hit(t, x, nNew, color);
+        Hit hit = new Hit(t, x, nNew, material);
         return hit;
     }
 }
