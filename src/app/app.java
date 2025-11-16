@@ -24,7 +24,7 @@ public class app {
     Camera cam = new Camera(width, height, 70.0);
     GroupShape scene = new GroupShape();
 
-    DirectionalLight light1 = new DirectionalLight(Color.white, new Vec3(-1,1,-.5));
+    DirectionalLight light1 = new DirectionalLight(Color.white, new Vec3(1,-1,-.5));
     DirectionalLight light2 = new DirectionalLight(Color.white, new Vec3(-1,-1,-.5));
     List<Light> list = new ArrayList<>();
     list.add(light1);
@@ -45,6 +45,6 @@ public class app {
     Raytracer raytracer = new Raytracer(cam, scene, list, Color.gray, Color.gray);
     image.sample(raytracer);
     // Write the image to disk.
-    image.writePNG("a04-shadows");
+    image.writePNG("a04-directional");
   }
 }
