@@ -24,7 +24,7 @@ public class app {
     Camera cam = new Camera(width, height, 70.0);
     GroupShape scene = new GroupShape();
 
-    DirectionalLight light1 = new DirectionalLight(Color.white, new Vec3(-1,-1,-.5));
+    DirectionalLight light1 = new DirectionalLight(Color.white, new Vec3(-1,1,-.5));
     DirectionalLight light2 = new DirectionalLight(Color.white, new Vec3(-1,-1,-.5));
     List<Light> list = new ArrayList<>();
     list.add(light1);
