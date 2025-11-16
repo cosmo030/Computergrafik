@@ -56,29 +56,30 @@ public class IntersectionTest {
     }
 
     public static void runAll() {
+        DummyMaterial dummy = new DummyMaterial();
         // test T1 - hit
         Ray r = new Ray(new Vec3(0, 0, 0), new Vec3(0, 0, -1), 0, Double.POSITIVE_INFINITY);
-        SphereShape s = new SphereShape(new Vec3(0, 0, -2), 1, Color.beige);
+        SphereShape s = new SphereShape(new Vec3(0, 0, -2), 1, dummy);
         expectHit("T1", r, s, 1.0, new Vec3(0, 0, -1), new Vec3(0, 0, 1));
 
         // test T2 - no hit
         Ray r2 = new Ray(new Vec3(0, 0, 0), new Vec3(0, 1, -1), 0, Double.POSITIVE_INFINITY);
-        SphereShape s2 = new SphereShape(new Vec3(0, 0, -2), 1, Color.beige);
+        SphereShape s2 = new SphereShape(new Vec3(0, 0, -2), 1, dummy);
         expectNoHit("T2", r2, s2);
 
         // test T3 - hit
         Ray r3 = new Ray(new Vec3(0, 0, 0), new Vec3(0, 0, -1), 0, Double.POSITIVE_INFINITY);
-        SphereShape s3 = new SphereShape(new Vec3(0, -1, -2), 1, Color.beige);
+        SphereShape s3 = new SphereShape(new Vec3(0, -1, -2), 1, dummy);
         expectHit("T3", r3, s3, 2.0, new Vec3(0, 0, -2), new Vec3(0, 1, 0));
 
         // test T4 - no hit
         Ray r4 = new Ray(new Vec3(0, 0, -4), new Vec3(0, 0, -1), 0, Double.POSITIVE_INFINITY);
-        SphereShape s4 = new SphereShape(new Vec3(0, 0, -2), 1, Color.beige);
+        SphereShape s4 = new SphereShape(new Vec3(0, 0, -2), 1, dummy);
         expectNoHit("T4", r4, s4);
 
         // test T5 - no hit
         Ray r5 = new Ray(new Vec3(0, 0, 0), new Vec3(0, 0, -1), 0, 2);
-        SphereShape s5 = new SphereShape(new Vec3(0, 0, -4), 1, Color.beige);
+        SphereShape s5 = new SphereShape(new Vec3(0, 0, -4), 1, dummy);
         expectNoHit("T5", r5, s5);
     }
 }
