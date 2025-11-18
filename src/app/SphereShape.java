@@ -6,8 +6,8 @@ import cgg_tools.Util;
 public record SphereShape(Vec3 center, double radius, Material material) implements Shape {
 
     public Hit intersect(Ray r) {
-        Vec3 v = Vec3.subtract(r.x0, center);
-        Vec3 d = r.d;
+        Vec3 v = Vec3.subtract(r.x0(), center);
+        Vec3 d = r.d();
         double a = Vec3.dot(d, d);
         double b = 2 * Vec3.dot(v, d);
         double c = Vec3.dot(v, v) - (radius * radius);

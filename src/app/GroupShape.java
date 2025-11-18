@@ -3,8 +3,7 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupShape implements Shape {
-    Camera cam;
+public class GroupShape implements Shape {    
     List<Shape> shapes = new ArrayList<>();
 
     public void add(Shape s) {
