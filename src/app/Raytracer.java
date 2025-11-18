@@ -17,7 +17,7 @@ public record Raytracer(Camera cam, GroupShape scene, List<Light> lights, Color 
         if (h == null)
             return background;
         Material material = h.material();
-        Vec3 to_viewer = Vec3.normalize(Vec3.negate(ray.d));
+        Vec3 to_viewer = Vec3.normalize(Vec3.negate(ray.d()));
         //Vec3 to_light = Vec3.normalize(new Vec3(1, 1, .5));
         Color ambient = material.ambient(h, ambient_light);
         Vec3 hit_pos = h.x();

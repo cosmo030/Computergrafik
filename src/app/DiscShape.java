@@ -8,8 +8,8 @@ public record DiscShape(Vec3 p, double radius, Material material) implements Sha
     @Override
     public Hit intersect(Ray r) {
         double py = p.y();
-        double x0 = r.x0.y();
-        double dy = r.d.y(); // y-component of ray direction
+        double x0 = r.x0().y();
+        double dy = r.d().y(); // y-component of ray direction
         if (Math.abs(dy) <= Util.EPSILON) // chatgpt meinte Math.abs(dy) damit ich den Betrag prüfen kann. Original nur
                                           // "dy" geschrieben.
             return null;
