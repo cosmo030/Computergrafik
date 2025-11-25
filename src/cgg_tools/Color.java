@@ -23,7 +23,7 @@ public record Color(double r, double g, double b) {
     /** Black color (0, 0, 0). */
     public static final Color black = new Color(0, 0, 0);
     /** Gray color (0.5, 0.5, 0.5). */
-    public static final Color gray = new Color(0.5, 0.5, 0.5);
+    public static final Color gray = new Color(0.2, 0.2, 0.2);
     /** White color (1, 1, 1). */
     public static final Color white = new Color(1, 1, 1);
     /** Red color (1, 0, 0). */
@@ -40,6 +40,8 @@ public record Color(double r, double g, double b) {
     public static final Color yellow = new Color(1, 1, 0);
     /** Beige color (1, 0.5, 0.2) */
     public static final Color beige = new Color(1, 0.5, 0.2);
+    /** Dark Red (0.5, 0, 0) */
+    public static final Color darkred = new Color(0.5, 0, 0);
 
     /**
      * Adds two or more Color objects.
