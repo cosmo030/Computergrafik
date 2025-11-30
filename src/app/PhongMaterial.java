@@ -20,20 +20,23 @@ public record PhongMaterial(Color k_ambient, Color k_diffuse, Color k_specular, 
 
         // diffuse
         double ns = Vec3.dot(n, s);
+        // pink debugging
+        if (ns < 0)
+            return Color.magenta;
         double l_cos = Math.max(0, ns);
         Color diffuse_result = Color.multiply(k_diffuse, incoming_light);
         Color l_diffuse = Color.multiply(diffuse_result, l_cos);
-        
+
         // specular
         double rv = Vec3.dot(r, v);
         double s_cos = Math.max(0, rv);
         double s_scalar = Math.pow(s_cos, shiny);
         Color specular_result = Color.multiply(k_specular, incoming_light);
-        Color l_specular = Color.multiply(specular_result, s_scalar); 
+        Color l_specular = Color.multiply(specular_result, s_scalar);
 
         Color result = Color.add(l_diffuse, l_specular);
-        
+
         return result;
     }
-    
+
 }
