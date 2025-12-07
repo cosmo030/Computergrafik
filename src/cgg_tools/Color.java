@@ -42,6 +42,9 @@ public record Color(double r, double g, double b) {
     public static final Color beige = new Color(1, 0.5, 0.2);
     /** Dark Red (0.5, 0, 0) */
     public static final Color darkred = new Color(0.5, 0, 0);
+    public static final Color darkgreen = new Color(0, 0.2, 0);
+    public static final Color darkmagenta = new Color(.2, 0, .2);
+    public static final Color brightermagenta = new Color(.5, 0, .5);
 
     /**
      * Adds two or more Color objects.
@@ -126,10 +129,9 @@ public record Color(double r, double g, double b) {
      */
     public static Color clamp(Color v) {
         return new Color(
-            Math.min(1, Math.max(v.r(), 0)),
-            Math.min(1, Math.max(v.g(), 0)),
-            Math.min(1, Math.max(v.b(), 0))
-        );
+                Math.min(1, Math.max(v.r(), 0)),
+                Math.min(1, Math.max(v.g(), 0)),
+                Math.min(1, Math.max(v.b(), 0)));
     }
 
     /**
@@ -142,9 +144,8 @@ public record Color(double r, double g, double b) {
      */
     public static Color hsvToRgb(double h, double s, double v) {
         return multiply(
-            v,
-            add(multiply(s, subtract(hue(h), Color.white)), Color.white)
-        );
+                v,
+                add(multiply(s, subtract(hue(h), Color.white)), Color.white));
     }
 
     /**
@@ -167,10 +168,9 @@ public record Color(double r, double g, double b) {
      */
     public static Color interpolate(Color a, Color b, double t) {
         return new Color(
-            a.r() * (1 - t) + b.r() * t,
-            a.g() * (1 - t) + b.g() * t,
-            a.b() * (1 - t) + b.b() * t
-        );
+                a.r() * (1 - t) + b.r() * t,
+                a.g() * (1 - t) + b.g() * t,
+                a.b() * (1 - t) + b.b() * t);
     }
 
     /**
@@ -184,10 +184,9 @@ public record Color(double r, double g, double b) {
      */
     public static Color interpolateColor(Color a, Color b, Color c, Vec3 uvw) {
         return add(
-            multiply(a, uvw.u()),
-            multiply(b, uvw.v()),
-            multiply(c, uvw.w())
-        );
+                multiply(a, uvw.u()),
+                multiply(b, uvw.v()),
+                multiply(c, uvw.w()));
     }
 
     /**
@@ -203,6 +202,5 @@ public record Color(double r, double g, double b) {
         double b = 2 - Math.abs(h * 6 - 4);
         return clamp(new Color(r, g, b));
     }
-
 
 }
