@@ -32,12 +32,12 @@ public class IntersectionTest {
             return;
         }
 
-        if (!vecAlmostEqual(h.x(), xExp)) {
+        if (!vecAlmostEqual(h.hitpoint(), xExp)) {
             fail(name, "point mismatch: expected ..., got ...");
             return;
         }
 
-        if (!vecAlmostEqual(h.n(), nExp)) {
+        if (!vecAlmostEqual(h.normal(), nExp)) {
             fail(name, "normal mismatch: expected ..., got ...");
             return;
         }

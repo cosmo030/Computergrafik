@@ -1,6 +1,7 @@
 package app;
 
 import cgg_tools.Util;
+import cgg_tools.Vec2;
 import cgg_tools.Vec3;
 
 public record RectShape(Vec3 p, double width, double depth, Material material) implements Shape {
@@ -24,9 +25,16 @@ public record RectShape(Vec3 p, double width, double depth, Material material) i
         if (Math.abs(d_x) > half_width || Math.abs(d_z) > half_depth)
             return null;
 
+        double u = (d_x + half_width) / width;
+        double v_raw = (d_z + half_depth) / depth;
+
+        double v = 1 - v_raw;
+        Vec2 uv = new Vec2(u, v);
+
         Vec3 nNew = new Vec3(0, 1, 0);
 
-        Hit hit = new Hit(t, x, nNew, material);
+        Hit hit = new Hit(t, x, uv, nNew, material);
+
         return hit;
     }
 

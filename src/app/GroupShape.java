@@ -44,11 +44,11 @@ public class GroupShape implements Shape {
         if (bestHit == null)
             return null;
 
-        Vec3 local_x = bestHit.x();
-        Vec3 local_n = bestHit.n();
+        Vec3 local_x = bestHit.hitpoint();
+        Vec3 local_n = bestHit.normal();
         Vec3 world_x = Mat4x4.multiplyPoint(transform, local_x);
         Vec3 world_n = Vec3.normalize(Mat4x4.multiplyDirection(transpose, local_n));
 
-        return new Hit(bestT, world_x, world_n, bestHit.material());
+        return new Hit(bestT, world_x, bestHit.uv(), world_n, bestHit.material());
     }
 }

@@ -2,6 +2,7 @@ package app;
 
 import cgg_tools.Vec3;
 import cgg_tools.Util;
+import cgg_tools.Vec2;
 
 public record SphereShape(Vec3 center, double radius, Material material) implements Shape {
 
@@ -22,13 +23,13 @@ public record SphereShape(Vec3 center, double radius, Material material) impleme
             if (r.is_valid(t1)) {
                 Vec3 x1 = r.point_at(t1);
                 Vec3 n1 = Vec3.normalize(Vec3.subtract(x1, center));
-                Hit hit = new Hit(t1, x1, n1, material);
+                Hit hit = new Hit(t1, x1, new Vec2(0, 0), n1, material);
                 return hit;
             }
             if (r.is_valid(t2)) {
                 Vec3 x2 = r.point_at(t2);
                 Vec3 n2 = Vec3.normalize(Vec3.subtract(x2, center));
-                Hit hit = new Hit(t2, x2, n2, material);
+                Hit hit = new Hit(t2, x2, new Vec2(0, 0), n2, material);
                 return hit;
             }
         }
@@ -37,7 +38,7 @@ public record SphereShape(Vec3 center, double radius, Material material) impleme
             if (r.is_valid(t)) {
                 Vec3 x = r.point_at(t);
                 Vec3 n = Vec3.normalize(Vec3.subtract(x, center));
-                Hit hit = new Hit(t, x, n, material);
+                Hit hit = new Hit(t, x, new Vec2(0, 0), n, material);
                 return hit;
             }
         }
