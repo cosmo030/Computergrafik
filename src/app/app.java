@@ -102,6 +102,6 @@ public class app {
     Raytracer raytracer = new Raytracer(cam, scene, list, Color.black, Color.black);
     image.sample(raytracer);
     // Write the image to disk.
-    image.writePNG("a07-transformed-image");
+    image.writePNG("a07-own-scene");
   }
 }
