@@ -62,8 +62,8 @@ public class ImageTexture implements Sampler {
     }
 
     public Color getColor(Vec2 at) {
-        // if (u < 0 || u > 1 || v < 0 || v > 1)
-        // return black;
+        // if (at.u() < 0 || at.u() > 1 || at.v() < 0 || at.v() > 1)
+        // return Color.black;
 
         double u = at.u();
         double v = 1.0 - at.v();

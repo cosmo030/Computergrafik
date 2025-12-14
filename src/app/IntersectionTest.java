@@ -1,6 +1,7 @@
 package app;
 
 import cgg_tools.*;
+import shapes.SphereShape;
 
 public class IntersectionTest {
     static final double EPS = Util.EPSILON;
